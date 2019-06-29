@@ -10,6 +10,23 @@ npm i -g wrenpack
 
 ## Usage
 
+```
+wrenpack build [input]
+
+Build the given file
+
+Positionals:
+  input  The input file to build                         [default: "index.wren"]
+
+Options:
+  --version     Show version number                                    [boolean]
+  --help        Show help                                              [boolean]
+  --output, -o  Where to write the file        [string] [default: "packed.wren"]
+  --minify, -m  Minify the output                     [boolean] [default: false]
+```
+
+## Example
+
 1. Create a `Unicorn.wren` to import
 	``` wren
 	class Unicorn {

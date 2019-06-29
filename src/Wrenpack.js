@@ -1,6 +1,9 @@
 const fs = require('fs')
 const path = require('path')
 const md5 = require('md5')
+const stripComments = require('strip-comment')
+const removeBlankLines = require('remove-blank-lines')
+const trimLines = require('trim-lines')
 
 const reservedModules = [
 	'random',
@@ -13,7 +16,7 @@ class Wrenpack {
 	constructor(input = 'index.wren', dir = '') {
 		this.baseDir = dir ? dir : path.dirname(input)
 		this.input = path.basename(input)
-		this.regex = /import \"([a-zA-Z\.\/]*)\".*\n/g
+		this.regex = /import \"([a-zA-Z0-9\.\/]*)\".*\n/g
 	}
 
 	modules() {
@@ -97,7 +100,7 @@ class Wrenpack {
 		return allModules
 	}
 
-	pack () {
+	pack (minify = false) {
 		const mods = this.allModules()
 
 		// Retrieve all code
@@ -122,7 +125,18 @@ class Wrenpack {
 			}
 		}
 
+		if (minify) {
+			concat = this.minifyCode(concat)
+		}
+
 		return concat
+	}
+
+	minifyCode(code) {
+		let out = stripComments.js(code)
+		out = removeBlankLines(out)
+		out = trimLines(out)
+		return out
 	}
 
 }

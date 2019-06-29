@@ -16,9 +16,15 @@ require('yargs') // eslint-disable-line
 				describe: 'Where to write the file',
 				type: 'string'
 			})
+			.option('minify', {
+				alias: 'm',
+				default: false,
+				describe: 'Minify the output',
+				type: 'boolean'
+			})
 	}, (argv) => {
 		const wren = new Wrenpack(argv.input)
-		const out = wren.pack()
+		const out = wren.pack(argv.minify)
 		fs.writeFileSync(argv.output, out)
 	})
 	.help()

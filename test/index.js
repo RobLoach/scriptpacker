@@ -8,4 +8,10 @@ describe('Wrenpack', function () {
 		assert(out.includes('// import "../Beverage" for Beverage'))
 		assert(out.includes('// import "Beverages/Coffee" for Coffee'))
 	})
+
+	it('.pack(true)', function() {
+		const out = wren.pack(true)
+		assert(!out.includes('// import "../Beverage" for Beverage'))
+		assert(!out.includes('// import "Beverages/Coffee" for Coffee'))
+	})
 })
