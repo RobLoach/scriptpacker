@@ -1,0 +1,20 @@
+{
+  "name": "wrenpack",
+  "version": "0.0.1",
+  "description": "Packaging multiple Wren files into one",
+  "main": "src/Wrenpack.js",
+  "bin": {
+    "wrenpack": "bin/wrenpack.js"
+  },
+  "scripts": {
+    "test": "mocha test",
+    "cli": "bin/wrenpack.js build test/simple/index.wren"
+  },
+  "author": "Rob Loach",
+  "license": "MIT",
+  "dependencies": {
+    "md5": "^2.2.1",
+    "mocha": "^6.1.4",
+    "yargs": "^13.2.4"
+  }
+}
