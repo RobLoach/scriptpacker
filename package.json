@@ -1,6 +1,6 @@
 {
   "name": "wrenpack",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Packaging multiple Wren files into one",
   "main": "src/Wrenpack.js",
   "bin": {

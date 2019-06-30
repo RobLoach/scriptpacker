@@ -14,4 +14,9 @@ describe('Wrenpack', function () {
 		assert(!out.includes('// import "../Beverage" for Beverage'))
 		assert(!out.includes('// import "Beverages/Coffee" for Coffee'))
 	})
+
+	it('.pack(true, "// Hello World!")', function() {
+		const out = wren.pack(true, '// Hello World!')
+		assert(out.includes('// Hello World!'))
+	})
 })

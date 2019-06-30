@@ -22,9 +22,15 @@ require('yargs') // eslint-disable-line
 				describe: 'Minify the output',
 				type: 'boolean'
 			})
+			.option('prefix', {
+				alias: 'p',
+				default: '',
+				describe: 'Text to prefix the output',
+				type: 'string'
+			})
 	}, (argv) => {
 		const wren = new Wrenpack(argv.input)
-		const out = wren.pack(argv.minify)
+		const out = wren.pack(argv.minify, argv.prefix)
 		fs.writeFileSync(argv.output, out)
 	})
 	.help()

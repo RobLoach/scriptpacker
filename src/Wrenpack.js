@@ -100,7 +100,7 @@ class Wrenpack {
 		return allModules
 	}
 
-	pack (minify = false) {
+	pack (minify = false, prefix = '') {
 		const mods = this.allModules()
 
 		// Retrieve all code
@@ -127,6 +127,10 @@ class Wrenpack {
 
 		if (minify) {
 			concat = this.minifyCode(concat)
+		}
+
+		if (prefix) {
+			return prefix.replace(/\\n/g, '\n') + "\n" + concat
 		}
 
 		return concat
