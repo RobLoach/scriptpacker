@@ -8,15 +8,40 @@ const trimLines = require('trim-lines')
 const reservedModules = [
 	'random',
 	'core',
-	'io'
+	'io',
+	'os',
+	'ffi',
+	'http',
+	'socket',
+	'osstream',
+	'meta',
+	'scheduler',
+	'timer'
 ]
 
-class Wrenpack {
+class ScriptPacker {
 
-	constructor(input = 'index.wren', dir = '') {
+	constructor(input = 'index.wren', dir = '', language = '') {
 		this.baseDir = dir ? dir : path.dirname(input)
 		this.input = path.basename(input)
-		this.regex = /import \"([a-zA-Z0-9\.\/]*)\".*\n/g
+		if (!language) {
+			if (input.includes('.wren')) {
+				language = 'wren'
+			} else if (input.includes('.nut')) {
+				language = 'squirrel'
+			}
+		}
+		this.language = language
+		switch (this.language) {
+			case 'wren':
+				this.extension = 'wren'
+				this.regex = /import \"([a-zA-Z0-9\.\/]*)\".*\n/g
+				break
+			case 'squirrel':
+				this.extension = 'nut'
+				this.regex = /import\(\"([a-zA-Z0-9\.\/]*)\"\).*\n/g
+				break
+		}
 	}
 
 	modules() {
@@ -33,12 +58,11 @@ class Wrenpack {
 				this.regex.lastIndex++;
 			}
 
-			//console.log(m)
 			const moduleName = m[1]
 			const destFile = path.format({
 				dir: this.baseDir,
 				name: moduleName,
-				ext: '.wren'
+				ext: '.' + this.extension
 			})
 			const baseDir = path.dirname(destFile)
 			const sourceFile = path.join(this.baseDir, this.input)
@@ -76,7 +100,7 @@ class Wrenpack {
 
 		// Append all child modules.
 		for (let mod of mods) {
-			const wren = new Wrenpack(mod.destFile)
+			const wren = new ScriptPacker(mod.destFile, '', this.language)
 			const childModules = wren.allModules()
 			if (childModules) {
 				allModules = allModules.concat(childModules)
@@ -145,4 +169,4 @@ class Wrenpack {
 
 }
 
-module.exports = Wrenpack
+module.exports = ScriptPacker

@@ -1,17 +1,22 @@
-# Wrenpack
+# ScriptPacker
 
-Package multiple [Wren](http://wren.io) files into one, in JavaScript.
+Package multiple [Wren](http://wren.io) or [Squirrel](http://squirrel-lang.org/) scripts together into one, using JavaScript.
+
+Supports importing and bundling modules for the following languages:
+- [Squirrel](http://squirrel-lang.org)
+- [Wren](http://wren.io)
+- ... Add more!
 
 ## Installation
 
 ```
-npm i -g wrenpack
+npm i -g scriptpacker
 ```
 
 ## Usage
 
 ```
-wrenpack build [input]
+scriptpacker build [input]
 
 Build the given file
 
@@ -27,7 +32,7 @@ Options:
 
 ## Example
 
-1. Create a `Unicorn.wren` to import
+1. Create a `Unicorn.wren` or `Unicorn.nut` to import
 	``` wren
 	class Unicorn {
 		construct new() {
@@ -39,16 +44,18 @@ Options:
 	}
 	```
 
-2. Create your main `index.wren` file
+2. Use `import` to bundle the module
 	```
 	import "Unicorn"
+	// In Squirrel, it would be: import("Unicorn")
+	// Use the imported class.
 	var unicorn = Unicorn.new()
 	unicorn.run()
 	```
 
 3. Run the build command
 	``` bash
-	wrenpack build index.wren --output=packed.wren
+	scriptpack build index.wren --output=packed.wren
 	```
 
 4. See the resulting `packed.wren`

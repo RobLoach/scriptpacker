@@ -1,14 +1,15 @@
 {
-  "name": "wrenpack",
-  "version": "1.1.0",
-  "description": "Packaging multiple Wren files into one",
-  "main": "src/Wrenpack.js",
+  "name": "scriptpacker",
+  "version": "2.0.0",
+  "description": "Pack multiple Wren/Squirrel scripts together",
+  "main": "src/ScriptPacker.js",
   "bin": {
-    "wrenpack": "bin/wrenpack.js"
+    "scriptpack": "bin/scriptpacker.js"
   },
   "scripts": {
     "test": "mocha test",
-    "cli": "bin/wrenpack.js build test/simple/index.wren"
+    "cli": "bin/scriptpacker.js build test/wren/index.wren",
+    "cli-squirrel": "bin/scriptpacker.js build test/squirrel/index.nut"
   },
   "author": "Rob Loach",
   "license": "MIT",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
-const Wrenpack = require('..')
+const ScriptPacker = require('..')
 
 require('yargs') // eslint-disable-line
 	.command('build [input]', 'Build the given file', (yargs) => {
@@ -29,8 +29,8 @@ require('yargs') // eslint-disable-line
 				type: 'string'
 			})
 	}, (argv) => {
-		const wren = new Wrenpack(argv.input)
-		const out = wren.pack(argv.minify, argv.prefix)
+		const packer = new ScriptPacker(argv.input)
+		const out = packer.pack(argv.minify, argv.prefix)
 		fs.writeFileSync(argv.output, out)
 	})
 	.help()
