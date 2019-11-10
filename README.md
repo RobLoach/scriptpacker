@@ -29,7 +29,7 @@ Positionals:
 Options:
   --version     Show version number                                    [boolean]
   --help        Show help                                              [boolean]
-  --output, -o  Where to write the file        [string] [default: "packed.wren"]
+  --output, -o  Where to write the file       [string] [default: "packed.<ext>"]
   --minify, -m  Minify the output                     [boolean] [default: false]
 ```
 

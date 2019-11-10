@@ -1,7 +1,7 @@
 {
   "name": "scriptpacker",
-  "version": "2.0.1",
-  "description": "Pack multiple Wren/Squirrel scripts together",
+  "version": "2.1.0",
+  "description": "Pack multiple Wren/Squirrel/ChaiScript scripts together",
   "main": "src/ScriptPacker.js",
   "bin": {
     "scriptpacker": "bin/scriptpacker.js"
@@ -9,7 +9,8 @@
   "scripts": {
     "test": "mocha test",
     "cli": "bin/scriptpacker.js build test/wren/index.wren",
-    "cli-squirrel": "bin/scriptpacker.js build test/squirrel/index.nut"
+    "cli-squirrel": "bin/scriptpacker.js build test/squirrel/index.nut",
+    "cli-chaiscript": "bin/scriptpacker.js build test/chaiscript/index.chai"
   },
   "author": "Rob Loach",
   "license": "MIT",

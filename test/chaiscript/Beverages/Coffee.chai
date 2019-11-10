@@ -6,7 +6,7 @@ class Coffee {
 		this.bev = Beverage()
 	}
 
-	drink() {
+	def drink() {
 		this.bev.drink()
 		print("Delicious Coffee!")
 	}

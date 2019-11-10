@@ -172,7 +172,6 @@ class ScriptPacker {
 		out = trimLines(out)
 		return out
 	}
-
 }
 
 module.exports = ScriptPacker

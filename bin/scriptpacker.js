@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
+const path = require('path')
 const ScriptPacker = require('..')
 
 require('yargs') // eslint-disable-line
@@ -12,7 +13,6 @@ require('yargs') // eslint-disable-line
 			})
 			.option('output', {
 				alias: 'o',
-				default: 'packed.wren',
 				describe: 'Where to write the file',
 				type: 'string'
 			})
@@ -31,6 +31,11 @@ require('yargs') // eslint-disable-line
 	}, (argv) => {
 		const packer = new ScriptPacker(argv.input)
 		const out = packer.pack(argv.minify, argv.prefix)
+		if (!argv.output) {
+			const pathObject = path.parse(argv.input)
+			argv.output = 'packed.' + packer.extension
+		}
+
 		fs.writeFileSync(argv.output, out)
 	})
 	.help()
