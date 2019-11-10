@@ -29,6 +29,8 @@ class ScriptPacker {
 				language = 'wren'
 			} else if (input.includes('.nut')) {
 				language = 'squirrel'
+			} else if (input.includes('.chai')) {
+				language = 'chaiscript'
 			}
 		}
 		this.language = language
@@ -40,6 +42,10 @@ class ScriptPacker {
 			case 'squirrel':
 				this.extension = 'nut'
 				this.regex = /import\(\"([a-zA-Z0-9\.\/]*)\"\).*\n/g
+				break
+			case 'chaiscript':
+				this.extension = 'chai'
+				this.regex = /require\(\"([a-zA-Z0-9\.\/]*)\"\).*\n/g
 				break
 		}
 	}

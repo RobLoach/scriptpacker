@@ -1,0 +1,5 @@
+class Unicorn {
+	def Unicorn() {
+		print("Unicorn!")
+	}
+}

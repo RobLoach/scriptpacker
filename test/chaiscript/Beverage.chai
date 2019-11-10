@@ -1,0 +1,8 @@
+class Beverage {
+	def Beverage() {
+		// Nothing.
+	}
+	def drink() {
+		print("Delicious")
+	}
+}

@@ -1,11 +1,14 @@
 # ScriptPacker
 
-Package multiple [Wren](http://wren.io) or [Squirrel](http://squirrel-lang.org/) scripts together into one, using JavaScript.
+Package multiple [Wren](http://wren.io), [Squirrel](http://squirrel-lang.org/), or [ChaiScript](http://chaiscript.com/) scripts together into one, through JavaScript.
 
-Supports importing and bundling modules for the following languages:
-- [Squirrel](http://squirrel-lang.org)
-- [Wren](http://wren.io)
-- ... Add more!
+## Features
+
+- [Squirrel](http://squirrel-lang.org) `import()`
+- [Wren](http://wren.io) `import ""`
+- [ChaiScript](http://chaiscript.com) `require()`
+- Retains dependency tree
+- Relative import paths
 
 ## Installation
 
@@ -45,7 +48,7 @@ Options:
 	```
 
 2. Use `import` to bundle the module
-	```
+	``` wren
 	import "Unicorn"
 	// In Squirrel, it would be: import("Unicorn")
 	// Use the imported class.
@@ -74,3 +77,24 @@ Options:
 	var unicorn = Unicorn.new()
 	unicorn.run()
 	```
+
+## Documentation
+
+The following are examples of loading the Unicorn script across the different languages...
+
+### Wren
+
+``` wren
+import "Unicorn"
+```
+### Squirrel
+
+``` squirrel
+import("Unicorn")
+```
+
+### ChaiScript
+
+``` chaiscript
+require("Unicorn")
+```

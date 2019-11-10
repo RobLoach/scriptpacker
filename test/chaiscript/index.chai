@@ -1,0 +1,12 @@
+print("Hello, world!")
+
+// Coffee
+require("Beverages/Coffee")
+
+var coffee = Coffee()
+coffee.drink()
+
+// Unicorn
+require("Unicorn")
+var unicorn = Unicorn()
+unicorn.isThirsty()

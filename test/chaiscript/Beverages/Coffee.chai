@@ -1,0 +1,13 @@
+require("../Beverage")
+
+class Coffee {
+
+	def Coffee() {
+		this.bev = Beverage()
+	}
+
+	drink() {
+		this.bev.drink()
+		print("Delicious Coffee!")
+	}
+}
