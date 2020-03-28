@@ -31,6 +31,8 @@ class ScriptPacker {
 				language = 'squirrel'
 			} else if (input.includes('.chai')) {
 				language = 'chaiscript'
+			} else if (input.includes('.lua')) {
+				language = 'lua'
 			}
 		}
 		this.language = language
@@ -47,6 +49,9 @@ class ScriptPacker {
 				this.extension = 'chai'
 				this.regex = /require\(\"([a-zA-Z0-9\.\/]*)\"\).*\n/g
 				break
+			case 'lua':
+				this.extension = 'lua'
+				this.regex = /require \"([a-zA-Z0-9\.\/]*)\".*\n/g
 		}
 	}
 
@@ -90,8 +95,12 @@ class ScriptPacker {
 
 		// Replace all found module imports.
 		this.code = this.code.toString()
+		let commentBeginning = '// '
+		if (this.language == 'lua') {
+			commentBeginning = '-- '
+		}
 		for (let codeToReplace of replaceCode) {
-			this.code = this.code.replace(codeToReplace, '// ' + codeToReplace)
+			this.code = this.code.replace(codeToReplace, commentBeginning + codeToReplace)
 		}
 
 		// Clean the array
@@ -151,7 +160,14 @@ class ScriptPacker {
 		for (let code of codes) {
 			if (!addedCodes.includes(code.md5)) {
 				addedCodes.push(code.md5)
-				concat += `// ${code.name}\n${code.code}`
+				switch (this.language) {
+					case 'lua':
+						concat += `-- ${code.name}\n${code.code}`
+					break
+					default:
+						concat += `// ${code.name}\n${code.code}`
+					break
+				}
 			}
 		}
 

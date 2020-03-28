@@ -2,4 +2,8 @@ class Unicorn {
 	def Unicorn() {
 		print("Unicorn!")
 	}
+
+	def isThirsty() {
+		print("Drink up!")
+	}
 }
