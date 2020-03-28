@@ -32,6 +32,7 @@ Options:
   --help        Show help                                              [boolean]
   --output, -o  Where to write the file       [string] [default: "packed.<ext>"]
   --minify, -m  Minify the output                     [boolean] [default: false]
+  --prefix, -p  Text to prefix the output                 [string] [default: ""]
 ```
 
 ## Example

@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const md5 = require('md5')
-const stripComments = require('strip-comment')
+const stripComments = require('strip-comments')
 const removeBlankLines = require('remove-blank-lines')
 const trimLines = require('trim-lines')
 
@@ -183,7 +183,11 @@ class ScriptPacker {
 	}
 
 	minifyCode(code) {
-		let out = stripComments.js(code)
+		let stripCommentsOptions = {}
+		if (this.language == 'lua') {
+			stripCommentsOptions.language = 'lua'
+		}
+		let out = stripComments(code, stripCommentsOptions)
 		out = removeBlankLines(out)
 		out = trimLines(out)
 		return out

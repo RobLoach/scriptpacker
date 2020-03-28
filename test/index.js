@@ -70,19 +70,14 @@ describe('ScriptPacker', function () {
 			assert(out.includes('-- require "../Beverage"'))
 			assert(out.includes('-- require "Beverages/Coffee"'))
 		})
-
-		/*
-		 * TODO: Add lua strip comments
 		it('.pack(true)', function() {
 			const out = scriptpacker.pack(true)
-			assert(!out.includes('// require("../Beverage")'))
-			assert(!out.includes('// require("Beverages/Coffee")'))
+			assert(!out.includes('-- require "../Beverage"'))
+			assert(!out.includes('-- require "Beverages/Coffee"'))
 		})
-
 		it('.pack(true, "-- Hello World!")', function() {
-			const out = scriptpacker.pack(true, '// Hello World!')
-			assert(out.includes('// Hello World!'))
+			const out = scriptpacker.pack(true, '-- Hello World!')
+			assert(out.includes('-- Hello World!'))
 		})
-		*/
 	})
 })
