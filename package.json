@@ -6,6 +6,10 @@
   "bin": {
     "scriptpacker": "bin/scriptpacker.js"
   },
+  "files": [
+    "bin/scriptpacker.js",
+    "src/ScriptPacker.js"
+  ],
   "scripts": {
     "test": "mocha test",
     "cli": "bin/scriptpacker.js build test/wren/index.wren",
