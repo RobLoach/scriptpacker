@@ -51,7 +51,7 @@ class ScriptPacker {
 				break
 			case 'lua':
 				this.extension = 'lua'
-				this.regex = /require \"([a-zA-Z0-9\.\/]*)\".*\n/g
+				this.regex = /require ?\(?\"([a-zA-Z0-9\.\/]*)\".*\n/g
 		}
 	}
 

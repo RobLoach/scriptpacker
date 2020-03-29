@@ -88,6 +88,9 @@ The following are examples of loading the Unicorn script across the different la
 
 ``` lua
 require "Unicorn"
+
+// ... or
+require("Unicorn")
 ```
 
 ### [Wren](https://github.com/wren-lang/wren)
