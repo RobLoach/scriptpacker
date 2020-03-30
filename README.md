@@ -37,7 +37,7 @@ Options:
 
 ## Example
 
-1. Create a `Unicorn.wren` or `Unicorn.nut` to import
+1. Create a script file to import, `Unicorn.wren` for example:
 	``` wren
 	class Unicorn {
 		construct new() {
@@ -49,7 +49,7 @@ Options:
 	}
 	```
 
-2. Use `import` to bundle the module
+2. Use `import` to bundle the module:
 	``` wren
 	import "Unicorn"
 	// In Squirrel, it would be: import("Unicorn")

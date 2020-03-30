@@ -4,6 +4,7 @@ const md5 = require('md5')
 const stripComments = require('strip-comments')
 const removeBlankLines = require('remove-blank-lines')
 const trimLines = require('trim-lines')
+const luamin = require('luamin')
 
 const reservedModules = [
 	'random',
@@ -183,13 +184,22 @@ class ScriptPacker {
 	}
 
 	minifyCode(code) {
+		// Strip the comments.
 		let stripCommentsOptions = {}
 		if (this.language == 'lua') {
 			stripCommentsOptions.language = 'lua'
 		}
 		let out = stripComments(code, stripCommentsOptions)
+
+		// Remove any empty lines and trim whitespace
 		out = removeBlankLines(out)
 		out = trimLines(out)
+
+		// If we're on Lua, we can minify further.
+		if (this.language == 'lua') {
+			out = luamin.minify(out)
+		}
+
 		return out
 	}
 }

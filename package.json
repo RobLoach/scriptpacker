@@ -1,7 +1,14 @@
 {
   "name": "scriptpacker",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Pack multiple Wren/Squirrel/ChaiScript scripts together",
+  "homepage": "https://github.com/RobLoach/scriptpacker",
+  "keywords": [
+    "lua",
+    "wren",
+    "chaiscript",
+    "squirrel"
+  ],
   "main": "src/ScriptPacker.js",
   "bin": {
     "scriptpacker": "bin/scriptpacker.js"
@@ -15,11 +22,12 @@
     "cli": "bin/scriptpacker.js build test/wren/index.wren",
     "cli-squirrel": "bin/scriptpacker.js build test/squirrel/index.nut",
     "cli-chaiscript": "bin/scriptpacker.js build test/chaiscript/index.chai",
-    "cli-lua": "bin/scriptpacker.js build test/lua/init.lua"
+    "cli-lua": "bin/scriptpacker.js build -m test/lua/init.lua"
   },
   "author": "Rob Loach",
   "license": "MIT",
   "dependencies": {
+    "luamin": "^1.0.4",
     "md5": "^2.2.1",
     "mocha": "^7.1.1",
     "remove-blank-lines": "^1.1.1",
