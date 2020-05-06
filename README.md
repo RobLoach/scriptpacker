@@ -1,6 +1,6 @@
 # ScriptPacker
 
-Package multiple [Lua](https://www.lua.org/), [Wren](http://wren.io), [Squirrel](http://squirrel-lang.org/), or [ChaiScript](http://chaiscript.com/) scripts together into one bundle, through JavaScript.
+Package multiple [Lua](https://www.lua.org/), [Wren](http://wren.io), [Squirrel](http://squirrel-lang.org/), Javascript, or [ChaiScript](http://chaiscript.com/) scripts together into one bundle, through JavaScript.
 
 ## Features
 
@@ -8,6 +8,7 @@ Package multiple [Lua](https://www.lua.org/), [Wren](http://wren.io), [Squirrel]
 - [Squirrel](http://squirrel-lang.org) `import()`
 - [Wren](http://wren.io) `import ""`
 - [ChaiScript](http://chaiscript.com) `require()`
+- JavaScript `require()`
 - Retains dependency tree
 - Relative import paths
 
@@ -86,7 +87,7 @@ The following are examples of loading the Unicorn script across the different la
 
 ### [Lua](https://www.lua.org)
 
-``` lua
+``` javascript
 require "Unicorn"
 
 // ... or
@@ -95,18 +96,24 @@ require("Unicorn")
 
 ### [Wren](https://github.com/wren-lang/wren)
 
-``` wren
+``` javascript
 import "Unicorn"
 ```
 
 ### [Squirrel](http://www.squirrel-lang.org)
 
-``` squirrel
+``` javascript
 import("Unicorn")
 ```
 
 ### [ChaiScript](http://chaiscript.com)
 
-``` chaiscript
+``` javascript
+require("Unicorn")
+```
+
+### JavaScript
+
+``` javascript
 require("Unicorn")
 ```

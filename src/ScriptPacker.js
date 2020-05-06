@@ -34,6 +34,8 @@ class ScriptPacker {
 				language = 'chaiscript'
 			} else if (input.includes('.lua')) {
 				language = 'lua'
+			} else if (input.includes('.js')) {
+				language = 'js'
 			}
 		}
 		this.language = language
@@ -53,6 +55,11 @@ class ScriptPacker {
 			case 'lua':
 				this.extension = 'lua'
 				this.regex = /require ?\(?\"([a-zA-Z0-9\.\/]*)\".*\n/g
+				break
+			case 'js':
+				this.extension = 'js'
+				this.regex = /require\(\"([a-zA-Z0-9\.\/]*)\"\).*\n/g
+				break
 		}
 	}
 

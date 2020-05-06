@@ -63,6 +63,26 @@ describe('ScriptPacker', function () {
 		})
 	})
 
+	describe('javascript', function() {
+		const scriptpacker = new ScriptPacker(__dirname + '/javascript/index.js')
+		it('.pack()', function () {
+			const out = scriptpacker.pack()
+			assert(out.includes('// require("../Beverage")'))
+			assert(out.includes('// require("Beverages/Coffee")'))
+		})
+
+		it('.pack(true)', function() {
+			const out = scriptpacker.pack(true)
+			assert(!out.includes('// require("../Beverage")'))
+			assert(!out.includes('// require("Beverages/Coffee")'))
+		})
+
+		it('.pack(true, "// Hello World!")', function() {
+			const out = scriptpacker.pack(true, '// Hello World!')
+			assert(out.includes('// Hello World!'))
+		})
+	})
+
 	describe('lua', function() {
 		const scriptpacker = new ScriptPacker(__dirname + '/lua/init.lua')
 		it('.pack()', function () {
