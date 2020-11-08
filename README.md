@@ -7,6 +7,7 @@ Package multiple [Lua](https://www.lua.org/), [Wren](http://wren.io), [Squirrel]
 - [Lua](https://www.lua.org/) `require ""`
 - [Squirrel](http://squirrel-lang.org) `import()`
 - [Wren](http://wren.io) `import ""`
+- [Gravity](https://github.com/marcobambini/gravity) `import ""`
 - [ChaiScript](http://chaiscript.com) `require()`
 - JavaScript `require()`
 - Retains dependency tree

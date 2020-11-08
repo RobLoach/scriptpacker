@@ -1,0 +1,9 @@
+class Unicorn {
+	func init() {
+		System.print("Unicorn!")
+	}
+
+	func isThirsty() {
+		System.print("Drink up!")
+	}
+}

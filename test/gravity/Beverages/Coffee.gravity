@@ -1,0 +1,7 @@
+import "../Beverage" for Beverage
+
+class Coffee : Beverage {
+	func drink() {
+		System.print("Delicious Coffee!")
+	}
+}

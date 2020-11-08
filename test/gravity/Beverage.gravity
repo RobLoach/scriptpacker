@@ -1,0 +1,5 @@
+class Beverage {
+	func drink() {
+		System.print("Delicious")
+	}
+}

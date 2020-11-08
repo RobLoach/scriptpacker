@@ -34,6 +34,8 @@ class ScriptPacker {
 				language = 'chaiscript'
 			} else if (input.includes('.lua')) {
 				language = 'lua'
+			} else if (input.includes('.gravity')) {
+				language = 'gravity'
 			} else if (input.includes('.js')) {
 				language = 'js'
 			}
@@ -42,6 +44,10 @@ class ScriptPacker {
 		switch (this.language) {
 			case 'wren':
 				this.extension = 'wren'
+				this.regex = /import \"([a-zA-Z0-9\.\/]*)\".*\n/g
+				break
+			case 'gravity':
+				this.extension = 'gravity'
 				this.regex = /import \"([a-zA-Z0-9\.\/]*)\".*\n/g
 				break
 			case 'squirrel':
