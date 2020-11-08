@@ -1,4 +1,4 @@
-import "../Beverage" for Beverage
+#include "../Beverage.gravity"
 
 class Coffee : Beverage {
 	func drink() {

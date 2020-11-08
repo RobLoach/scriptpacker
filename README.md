@@ -118,3 +118,9 @@ require("Unicorn")
 ``` javascript
 require("Unicorn")
 ```
+
+### [Gravity](https://github.com/marcobambini/gravity)
+
+``` swift
+#include "Unicorn.gravity"
+```

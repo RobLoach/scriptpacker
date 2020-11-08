@@ -1,12 +1,12 @@
 System.print("Hello, world!")
 
 // Coffee
-import "Beverages/Coffee" for Coffee
+#include "Beverages/Coffee.gravity"
 var coffee = Coffee()
 coffee.drink()
 
 // Unicorn
-import "Unicorn"
+#include "Unicorn.gravity"
 var unicorn = Unicorn()
 unicorn.isThirsty()
 

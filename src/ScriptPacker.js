@@ -41,6 +41,7 @@ class ScriptPacker {
 			}
 		}
 		this.language = language
+		this.appendExtension = true
 		switch (this.language) {
 			case 'wren':
 				this.extension = 'wren'
@@ -48,7 +49,8 @@ class ScriptPacker {
 				break
 			case 'gravity':
 				this.extension = 'gravity'
-				this.regex = /import \"([a-zA-Z0-9\.\/]*)\".*\n/g
+				this.appendExtension = false
+				this.regex = /#include ?\(?\"([a-zA-Z0-9\.\/]*)\".*\n/g
 				break
 			case 'squirrel':
 				this.extension = 'nut'
@@ -87,7 +89,7 @@ class ScriptPacker {
 			const destFile = path.format({
 				dir: this.baseDir,
 				name: moduleName,
-				ext: '.' + this.extension
+				ext: this.appendExtension ? '.' + this.extension : ''
 			})
 			const baseDir = path.dirname(destFile)
 			const sourceFile = path.join(this.baseDir, this.input)
@@ -138,17 +140,19 @@ class ScriptPacker {
 		}
 
 		// Append the parent module.
-		let code = this.code.toString().trim() + '\n'
-		allModules.push({
-			code: code,
-			name: this.input,
-			index: 0,
-			//inputCode: this.code.toString(),
-			sourceFile: this.input,
-			destFile: '',
-			baseDir: this.baseDir,
-			md5: md5(code)
-		})
+		if (this.code) {
+			let code = this.code.toString().trim() + '\n'
+			allModules.push({
+				code: code,
+				name: this.input,
+				index: 0,
+				//inputCode: this.code.toString(),
+				sourceFile: this.input,
+				destFile: '',
+				baseDir: this.baseDir,
+				md5: md5(code)
+			})
+		}
 
 		return allModules
 	}

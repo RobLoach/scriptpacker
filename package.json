@@ -1,6 +1,6 @@
 {
   "name": "scriptpacker",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Pack multiple Lua/Wren/Squirrel/ChaiScript/JavaScript scripts together",
   "homepage": "https://github.com/RobLoach/scriptpacker",
   "keywords": [

@@ -27,14 +27,14 @@ describe('ScriptPacker', function () {
 		const scriptpacker = new ScriptPacker(__dirname + '/gravity/index.gravity')
 		it('.pack()', function () {
 			const out = scriptpacker.pack()
-			assert(out.includes('// import "../Beverage"'))
-			assert(out.includes('// import "Beverages/Coffee"'))
+			assert(out.includes('// #include "../Beverage.gravity"'))
+			assert(out.includes('// #include "Beverages/Coffee.gravity"'))
 		})
 
 		it('.pack(true)', function() {
 			const out = scriptpacker.pack(true)
-			assert(!out.includes('// import "../Beverage"'))
-			assert(!out.includes('// import "Beverages/Coffee"'))
+			assert(!out.includes('// #include "../Beverage.gravity"'))
+			assert(!out.includes('// #include "Beverages/Coffee.gravity"'))
 		})
 
 		it('.pack(true, "// Hello World!")', function() {
