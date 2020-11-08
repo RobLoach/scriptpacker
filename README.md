@@ -4,12 +4,12 @@ Package multiple [Lua](https://www.lua.org/), [Wren](http://wren.io), [Squirrel]
 
 ## Features
 
-- [Lua](https://www.lua.org/) `require ""`
-- [Squirrel](http://squirrel-lang.org) `import()`
-- [Wren](http://wren.io) `import ""`
-- [Gravity](https://github.com/marcobambini/gravity) `import ""`
-- [ChaiScript](http://chaiscript.com) `require()`
-- JavaScript `require()`
+- [Lua](https://www.lua.org/) `require "MyModule"`
+- [Squirrel](http://squirrel-lang.org) `import("MyModule")`
+- [Wren](http://wren.io) `import "MyModule"`
+- [Gravity](https://github.com/marcobambini/gravity) `#include "MyModule.gravity"`
+- [ChaiScript](http://chaiscript.com) `require("MyModule")`
+- JavaScript `require("MyModule")`
 - Retains dependency tree
 - Relative import paths
 
