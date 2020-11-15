@@ -39,4 +39,5 @@ require('yargs') // eslint-disable-line
 		fs.writeFileSync(argv.output, out)
 	})
 	.help()
+	.demandCommand()
 	.argv
