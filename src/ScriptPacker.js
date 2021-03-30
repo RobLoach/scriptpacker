@@ -3,7 +3,7 @@ const path = require('path')
 const md5 = require('md5')
 const stripComments = require('strip-comments')
 const removeBlankLines = require('remove-blank-lines')
-const trimLines = require('trim-lines')
+const trimLines = require('trim-whitespace')
 const luamin = require('luamin')
 
 const reservedModules = [
